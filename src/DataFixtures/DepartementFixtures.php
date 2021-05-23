@@ -10,14 +10,37 @@ class DepartementFixtures extends Fixture
 {
     public function load(ObjectManager $manager)
     {
-        $array = array('direction', 'rh', 'com','dev');
-        $taille=sizeof($array);
-        foreach ($array as $value){
-            $departement= new Departement();
-            $departement->setNom("$value")
-                ->setEmail("ousmanemoussathiam@yahoo.fr");
-            $manager->persist($departement);
+        $array = array(
+            array(
+                "nom" => "direction",
+                "email" => "ousmanemoussathiam@gmail.com",
+
+            ),
+            array(
+                "nom" => "rh",
+                "email" => "ousmanemoussathiam@yahoo.fr",
+
+            ),
+            array(
+                "nom" => "Dev",
+                "email" => "arounabathily01@yahoo.com",
+
+            ),
+            array(
+                "nom" => "Com",
+                "email" => "amiousmane.thiam@gmail.com",
+
+            )
+        );
+
+        foreach($array as $value) {
+                    $departement= new Departement();
+                    $departement->setNom($value['nom'] )
+                        ->setEmail($value['email']);
+                    $manager->persist($departement);
+
         }
+
         // $product = new Product();
         // $manager->persist($product);
 
